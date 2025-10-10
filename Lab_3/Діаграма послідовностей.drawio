@@ -1,0 +1,258 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:143.0) Gecko/20100101 Firefox/143.0" version="28.2.5">
+  <diagram name="Сторінка-1" id="cFo-NmZBEfZ7aPEoFkmW">
+    <mxGraphModel dx="1188" dy="633" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-1" value="Користувач" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-7" value="E-mail клієнт" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="370" y="255" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="625.3333333333335" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-8" value="Потштовий сервер" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="570" y="255" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-12" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="360" as="sourcePoint" />
+            <mxPoint x="420" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-14" value="Запит &quot;Налаштувати акаунт&quot;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-12">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-15" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="390" as="sourcePoint" />
+            <mxPoint x="230" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-16" value="Запит пошти і паролю&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-15">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-17" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="440" as="sourcePoint" />
+            <mxPoint x="420" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-18" value="Введення даних" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-17">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-19" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="440" as="sourcePoint" />
+            <mxPoint x="620" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-20" value="Запит аутентифікації" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-19">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-21" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="480" as="sourcePoint" />
+            <mxPoint x="430" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-22" value="Аутентифікація успішна/помилка" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-21">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-23" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="500" as="sourcePoint" />
+            <mxPoint x="230" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-24" value="Успіх/помилка" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-23">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="825" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-26" value="Користувач" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="810" y="440" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1025" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-28" value="E-mail клієнт" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="970" y="445" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1225.3333333333335" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-30" value="Потштовий сервер" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="445" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-31" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="830" y="550" as="sourcePoint" />
+            <mxPoint x="1020" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-32" value="Запит &quot;Перегляд повідомлень&quot;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-31">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-37" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="560" as="sourcePoint" />
+            <mxPoint x="1220" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-38" value="Надати список повідомленнь" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-37">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-39" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1030" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-40" value="Список повідомленнь" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-39">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-41" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1017" y="640" as="sourcePoint" />
+            <mxPoint x="827" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-42" value="показати список" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-41">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315" y="1460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-44" value="Користувач" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1070" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="515" y="1460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-46" value="E-mail клієнт" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1075" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OfXycsMAFlFg2gl2HMRa-48">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="715.3333333333335" y="1460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-48" value="Потштовий сервер" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1075" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-49" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="1180" as="sourcePoint" />
+            <mxPoint x="510" y="1180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-50" value="Запит &quot;Напискати повідомлення&quot;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-49">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-51" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="510" y="1210" as="sourcePoint" />
+            <mxPoint x="320" y="1210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-52" value="Форма заповнення&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-51">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-53" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="1260" as="sourcePoint" />
+            <mxPoint x="510" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-54" value="Введення даних" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-53">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-55" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="1260" as="sourcePoint" />
+            <mxPoint x="710" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-56" value="Передати повідомлення" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-55">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-57" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="1300" as="sourcePoint" />
+            <mxPoint x="520" y="1300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-58" value="Успішно передано/Неуспішно&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-57">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-59" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="510" y="1320" as="sourcePoint" />
+            <mxPoint x="320" y="1320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OfXycsMAFlFg2gl2HMRa-60" value="&quot;Успішно надіслано&quot;/&quot;Помилка&quot;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OfXycsMAFlFg2gl2HMRa-59">
+          <mxGeometry x="0.0035" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
