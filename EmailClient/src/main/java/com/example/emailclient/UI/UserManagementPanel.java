@@ -20,6 +20,9 @@ public class UserManagementPanel extends JPanel {
 
 	private final DefaultListModel<User> userModel = new DefaultListModel<>();
 	private final JList<User> userList = new JList<>(userModel);
+	
+	private final DefaultListModel<Account> accountModel = new DefaultListModel<>();
+	private final JList<Account> accountList = new JList<>(accountModel);
 	private final JButton createUserButton = new JButton("Створити користувача");
 	private final JButton addAccountButton = new JButton("Додати акаунт");
 	private final JComboBox<String> comboBoxAccounts=new JComboBox<String>();
@@ -39,6 +42,7 @@ public class UserManagementPanel extends JPanel {
 
 		add(buttonPanel, BorderLayout.NORTH);
 		add(scrollPane, BorderLayout.CENTER);
+		
 		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		bottomPanel.add(new JLabel("Акаунти користувача:"));
 		bottomPanel.add(comboBoxAccounts);
@@ -110,7 +114,23 @@ public class UserManagementPanel extends JPanel {
 	    List<Account> accounts = accountService.getAccountsForUser(user.getId());
 	    for (Account account : accounts) {
 	        comboBoxAccounts.addItem(account.getEmail());
+	        accountModel.addElement(account);
 	    }
+	}
+	public User getSelectedUser() { return userList.getSelectedValue(); }
+
+	public Account getSelectedAccount() {
+		String selectedEmail = (String) comboBoxAccounts.getSelectedItem();
+		if (selectedEmail == null)
+			return null;
+
+		for (int i = 0; i < accountModel.size(); i++) {
+			Account acc = accountModel.getElementAt(i);
+			if (acc.getEmail().equals(selectedEmail)) {
+				return acc;
+			}
+		}
+		return null;
 	}
 }
 

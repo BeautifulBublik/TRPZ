@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.emailclient.model.Message;
+import com.example.emailclient.model.EmailMessage;
 
-public interface MessageRepository extends JpaRepository<Message, Long>  {
+public interface MessageRepository extends JpaRepository<EmailMessage, Long>  {
 
-	List<Message> findByFolder_Id(Long id);
+	List<EmailMessage> findByFolder_Id(Long id);
 
 }

@@ -22,6 +22,11 @@ public class Account {
     private String provider;
     @OneToMany
     @JoinColumn(name="Message_id")
-    private List<Message> messages;
+    private List<EmailMessage> messages;
+	@Override
+	public String toString() {
+		return "Account [email=" + email + "]";
+	}
 
+    
 }
