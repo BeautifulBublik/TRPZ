@@ -37,7 +37,7 @@ import com.example.emailclient.service.providers.UkrNetValidator;
 import com.example.emailclient.service.receiver.GmailImapReceiv;
 import com.example.emailclient.service.receiver.MailReceiverImap;
 import com.example.emailclient.service.receiver.UkrNetImapReceiv;
-import com.example.emailclient.singelton.MailReceiverFactory;
+import com.example.emailclient.singelton.MailReceiverManager;
 
 import jakarta.annotation.PostConstruct;
 
@@ -170,7 +170,7 @@ public class EmailClientUI extends JFrame {
         int count = countStr.equals("Всі") ? Integer.MAX_VALUE : Integer.parseInt(countStr);
         	
         if (choice == JOptionPane.CLOSED_OPTION) return;
-        MailReceiverImap receiver = MailReceiverFactory
+        MailReceiverImap receiver = MailReceiverManager
                 .getInstance()
                 .getReceiver(selectedAccount.getProvider(), choice == 1);
 

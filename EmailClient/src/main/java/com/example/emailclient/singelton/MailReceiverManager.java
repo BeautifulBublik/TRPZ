@@ -8,13 +8,13 @@ import com.example.emailclient.service.receiver.MailReceiverImap;
 import com.example.emailclient.service.receiver.UkrNetImapReceiv;
 import com.example.emailclient.service.receiver.UkrNetPop3Receiv;
 
-public class MailReceiverFactory {
-	private static MailReceiverFactory instance;
+public class MailReceiverManager {
+	private static MailReceiverManager instance;
 
-    private MailReceiverFactory() {}
+    private MailReceiverManager() {}
 
-    public static synchronized MailReceiverFactory getInstance() {
-        if (instance == null) instance = new MailReceiverFactory();
+    public static synchronized MailReceiverManager getInstance() {
+        if (instance == null) instance = new MailReceiverManager();
         return instance;
     }
 
