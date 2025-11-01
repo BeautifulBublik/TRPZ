@@ -27,6 +27,20 @@ public class Account {
 	public String toString() {
 		return "Account [email=" + email + "]";
 	}
+	public Account(String email, String password, String provider, List<EmailMessage> messages) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.provider = provider;
+		this.messages = messages;
+	}
+	public Account(String email, String password, String provider) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.provider = provider;
+	}
+	
 
     
 }

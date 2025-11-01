@@ -4,8 +4,11 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,11 +33,12 @@ public class EmailMessage {
 	    private String subject;
 	    private String body;
 	    private Date date;
-	    private String status; 
-	    @OneToMany()
+	    @Enumerated(EnumType.STRING)
+	    private EmailStatus status; 
+	    @OneToMany(cascade = CascadeType.ALL)
 	    @JoinColumn(name="message_id")
 	    private List<Attachment> attachments;
-	    @ManyToOne()
+	    @ManyToOne(cascade = CascadeType.ALL)
 	    @JoinColumn(name = "folder_id")
 	    private Folder folder;
 		public EmailMessage(String from, String subject, String body, Date date) {
@@ -44,12 +48,38 @@ public class EmailMessage {
 			this.body = body;
 			this.date = date;
 		}
+		
 		@Override
 		public String toString() {
 			return "Повідомлення: " + subject;
 		}
+
+		public EmailMessage(String from, String subject, String body, Date date, EmailStatus status,
+				List<Attachment> attachments) {
+			super();
+			this.from = from;
+			this.subject = subject;
+			this.body = body;
+			this.date = date;
+			this.status = status;
+			this.attachments = attachments;
+		}
+
 	    
 	    
-		
+		public EmailMessage(String from, String subject, String body, Date date, EmailStatus status) {
+			super();
+			this.from = from;
+			this.subject = subject;
+			this.body = body;
+			this.date = date;
+			this.status = status;
+		}
+
+
+
+		public enum EmailStatus {
+		    NEW,READ,SENT,DRAFT,DELETED,SPAM,FAILED      
+		}
 
 }

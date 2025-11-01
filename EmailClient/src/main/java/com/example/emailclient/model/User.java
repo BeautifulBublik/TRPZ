@@ -1,5 +1,7 @@
 package com.example.emailclient.model;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -12,6 +14,7 @@ import jakarta.persistence.OneToMany;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,5 +36,14 @@ public class User {
 	public String toString() {
 		return "User: "+name;
 	}
+
+
+	public User(String name, String password) {
+		super();
+		this.name = name;
+		this.password = password;
+	}
+	
+	
     
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.emailclient.builder.AccountBuilder;
 import com.example.emailclient.model.Account;
 import com.example.emailclient.model.User;
 import com.example.emailclient.repository.AccountRepository;
@@ -31,6 +32,15 @@ public class AccountService {
         }
         
 }
+    public Account saveAccount(String email, String password, String provider) {
+    	AccountBuilder builder= new AccountBuilder();
+    	Account account=builder.setEmail(email)
+    			.setPassword(password)
+    			.setProvider(provider)
+    			.build();
+    	accountRepository.save(account);
+    	return account;
+    }
     public List<Account> getAccountsForUser(Long userId) {
         return userRepository.findByIdWithAccounts(userId)
                 .map(User::getAccounts)

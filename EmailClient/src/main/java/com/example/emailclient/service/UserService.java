@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.emailclient.model.Account;
 import com.example.emailclient.model.User;
+import com.example.emailclient.builder.UserBuilder;
 import com.example.emailclient.repository.AccountRepository;
 import com.example.emailclient.repository.UserRepository;
 import com.example.emailclient.service.providers.EmailProviderValidator;
@@ -14,21 +15,22 @@ import com.example.emailclient.service.providers.IUaValidator;
 import com.example.emailclient.service.providers.UkrNetValidator;
 
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class UserService {
-	UserRepository userRepo;
-	AccountRepository accountRepo;
+	private UserRepository userRepo;
+	private AccountRepository accountRepo;
+	private AccountService accountService;
 	
-	public UserService(UserRepository userRepo, AccountRepository accountRepo) {
-		super();
-		this.userRepo = userRepo;
-		this.accountRepo = accountRepo;
-	}
+	
+	
 	public User createUser(String name, String password) {
-		User user=new User();
-		user.setName(name);
-		user.setPassword(password);
+		UserBuilder userBuilder=new UserBuilder();
+		User user=userBuilder.setName(name)
+				.setPassword(password)
+				.build();
 		return userRepo.save(user);
 	}
 	
@@ -44,11 +46,7 @@ public class UserService {
 	        if (!validator.validate(email, password)) {
 	            throw new RuntimeException("Помилка перевірки акаунту через " + provider);
 	        }
-		Account account =new Account();
-		account.setEmail(email);
-		account.setPassword(password);
-		account.setProvider(provider);
-		accountRepo.save(account);
+		Account account =accountService.saveAccount(email, password, provider);
 		user.addAccount(account);
 		
 		return userRepo.save(user);
