@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 @Entity
 public class Draft extends EmailMessage {
-	public Draft(String from ,String subject, String body, Date date) {
-		super(from, subject, body, date);
+	public Draft(String from ,String subject, String body, Date date, Account account) {
+		super(from, subject, body, date, account);
 	}
 
 	private LocalDateTime lastEdit=LocalDateTime.now();

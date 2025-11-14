@@ -1,6 +1,7 @@
 package com.example.emailclient.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,22 +32,28 @@ public class EmailMessage {
 		@Column(name = "from_email")
 		private String from;
 	    private String subject;
+	    @Column(columnDefinition = "LONGTEXT")
 	    private String body;
 	    private Date date;
 	    @Enumerated(EnumType.STRING)
 	    private EmailStatus status; 
 	    @OneToMany(cascade = CascadeType.ALL)
 	    @JoinColumn(name="message_id")
-	    private List<Attachment> attachments;
+	    private List<Attachment> attachments=new ArrayList<>();
 	    @ManyToOne(cascade = CascadeType.ALL)
 	    @JoinColumn(name = "folder_id")
 	    private Folder folder;
-		public EmailMessage(String from, String subject, String body, Date date) {
+	    @ManyToOne
+	    @JoinColumn(name = "account_id")
+	    private Account account;
+	    
+		public EmailMessage(String from, String subject, String body, Date date, Account account) {
 			super();
 			this.from=from;
 			this.subject = subject;
 			this.body = body;
 			this.date = date;
+			this.account=account;
 		}
 		
 		@Override
@@ -54,27 +61,37 @@ public class EmailMessage {
 			return "Повідомлення: " + subject;
 		}
 
-		public EmailMessage(String from, String subject, String body, Date date, EmailStatus status,
+		public EmailMessage(String from, String subject, String body, Date date,Account account, EmailStatus status,
 				List<Attachment> attachments) {
 			super();
 			this.from = from;
 			this.subject = subject;
 			this.body = body;
 			this.date = date;
+			this.account=account;
 			this.status = status;
-			this.attachments = attachments;
+			this.attachments = (attachments != null) ? attachments : new ArrayList<>();
 		}
 
 	    
 	    
-		public EmailMessage(String from, String subject, String body, Date date, EmailStatus status) {
+		public EmailMessage(String from, String subject, String body, Date date,Account account, EmailStatus status) {
 			super();
 			this.from = from;
 			this.subject = subject;
 			this.body = body;
 			this.date = date;
+			this.account=account;
 			this.status = status;
 		}
+		
+
+
+
+		public EmailMessage() {
+			super();
+		}
+
 
 
 

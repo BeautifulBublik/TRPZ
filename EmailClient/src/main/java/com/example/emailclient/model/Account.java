@@ -3,6 +3,7 @@ import lombok.Data;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,8 +21,7 @@ public class Account {
     private String email;
     private String password;
     private String provider;
-    @OneToMany
-    @JoinColumn(name="Message_id")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<EmailMessage> messages;
 	@Override
 	public String toString() {
@@ -40,6 +40,10 @@ public class Account {
 		this.password = password;
 		this.provider = provider;
 	}
+	public Account() {
+		super();
+	}
+	
 	
 
     

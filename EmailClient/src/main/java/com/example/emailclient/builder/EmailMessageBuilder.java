@@ -1,8 +1,10 @@
 package com.example.emailclient.builder;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.example.emailclient.model.Account;
 import com.example.emailclient.model.Attachment;
 import com.example.emailclient.model.EmailMessage;
 import com.example.emailclient.model.EmailMessage.EmailStatus;
@@ -13,9 +15,15 @@ public class EmailMessageBuilder implements Builder<EmailMessage> {
     private String body;
     private Date date;
     private EmailStatus status;
-    private List<Attachment> attachments;
+    private List<Attachment> attachments = new ArrayList<>();
+    private Account account;
     
-    public EmailMessageBuilder setFrom(String from) {
+
+	public  EmailMessageBuilder setAccount(Account account) {
+		this.account = account;
+		return this;
+	}
+	public EmailMessageBuilder setFrom(String from) {
     	this.from=from;
     	return this;
     }
@@ -47,9 +55,9 @@ public class EmailMessageBuilder implements Builder<EmailMessage> {
 	@Override
 	public EmailMessage build() {
 		if(attachments.isEmpty()) {
-			return new EmailMessage(from, subject, body, date, status);
+			return new EmailMessage(from, subject, body, date,account, status);
 		}else {
-		return new EmailMessage(from, subject, body, date, status, attachments);
+		return new EmailMessage(from, subject, body, date,account, status, attachments);
 		}
 	}
 

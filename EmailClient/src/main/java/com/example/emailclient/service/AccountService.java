@@ -46,4 +46,7 @@ public class AccountService {
                 .map(User::getAccounts)
                 .orElse(Collections.emptyList());
     }
+    public Account getAccountByEmail(String email) {
+    	return accountRepository.findByEmail(email);
+    }
 }

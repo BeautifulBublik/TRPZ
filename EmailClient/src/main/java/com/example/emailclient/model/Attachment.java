@@ -20,4 +20,21 @@ public class Attachment {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "message_id")
     private EmailMessage message;
+
+	public Attachment(String fileName, String filePath) {
+		super();
+		this.fileName = fileName;
+		this.filePath = filePath;
+	}
+
+	public Attachment() {
+	}
+
+	@Override
+	public String toString() {
+		return fileName;
+	}
+	
+    
+    
 }

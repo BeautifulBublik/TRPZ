@@ -1,14 +1,19 @@
 package com.example.emailclient.UI;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
@@ -20,23 +25,24 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 
 import org.springframework.stereotype.Component;
 
 import com.example.emailclient.model.Folder;
 import com.example.emailclient.model.User;
+import com.example.emailclient.decorator.EmailSender;
+import com.example.emailclient.decorator.LoggingMailSenderDecorator;
+import com.example.emailclient.decorator.RetryMailSenderDecorator;
 import com.example.emailclient.model.Account;
+import com.example.emailclient.model.Attachment;
 import com.example.emailclient.model.EmailMessage;
 import com.example.emailclient.repository.FolderRepository;
 import com.example.emailclient.repository.MessageRepository;
 import com.example.emailclient.service.AccountService;
+import com.example.emailclient.service.EmailMessageService;
 import com.example.emailclient.service.UserService;
-import com.example.emailclient.service.providers.GmailValidator;
-import com.example.emailclient.service.providers.IUaValidator;
-import com.example.emailclient.service.providers.UkrNetValidator;
-import com.example.emailclient.service.receiver.GmailImapReceiv;
-import com.example.emailclient.service.receiver.MailReceiverImap;
-import com.example.emailclient.service.receiver.UkrNetImapReceiv;
+import com.example.emailclient.service.receiver.MailReceiver;
 import com.example.emailclient.singelton.MailReceiverManager;
 
 import jakarta.annotation.PostConstruct;
@@ -51,11 +57,15 @@ public class EmailClientUI extends JFrame {
     private UserService userService;
     private AccountService accountService;
     private UserManagementPanel userPanel;
+    private EmailMessageService messageService;
+    private MailReceiverManager receiverManager;
 
     private DefaultListModel<Folder> foldersModel = new DefaultListModel<>();
     private DefaultListModel<EmailMessage> messagesModel = new DefaultListModel<>();
+    private DefaultListModel<Attachment> attachmentsModel = new DefaultListModel<>();
     private JList<Folder> folderList = new JList<>(foldersModel);
     private JList<EmailMessage> messageList = new JList<>(messagesModel);
+    private JList<Attachment> attachmentsList = new JList<>(attachmentsModel);
     private JEditorPane messageContent = new JEditorPane("text/html", "");
     
     private JButton loadMailButton = new JButton("Завантажити пошту");
@@ -64,12 +74,15 @@ public class EmailClientUI extends JFrame {
     
 
 	public EmailClientUI(FolderRepository folderRepository, MessageRepository messageRepository,
-			UserService userService,AccountService accountService ) throws HeadlessException {
+			UserService userService,AccountService accountService, EmailMessageService messageService,
+			MailReceiverManager receiverManager) throws HeadlessException {
 		super();
 		this.folderRepository = folderRepository;
 		this.messageRepository = messageRepository;
 		this.userService = userService;
 		this.accountService=accountService;
+		this.messageService=messageService;
+		this.receiverManager=receiverManager;
 	}
 
 	@PostConstruct
@@ -92,8 +105,32 @@ public class EmailClientUI extends JFrame {
 
         loadMailButton.addActionListener(this::onLoadMailClicked);
 
+        JPanel attachmentsPanel = new JPanel(new BorderLayout());
+        attachmentsPanel.setBorder(BorderFactory.createTitledBorder("Вкладення"));
+        attachmentsPanel.add(new JScrollPane(attachmentsList), BorderLayout.CENTER);
+
+        attachmentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        attachmentsList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) { 
+                    Attachment selected = attachmentsList.getSelectedValue();
+                    if (selected != null) {
+                        try {
+                            Desktop.getDesktop().open(new File(selected.getFilePath()));
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null, "Не вдалося відкрити файл: " + ex.getMessage());
+                        }
+                    }
+                }
+            }
+        });
+        JSplitPane messageSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT,
+                new JScrollPane(messageContent), attachmentsPanel);
+        messageSplit.setDividerLocation(400);
+
         JSplitPane rightSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-                new JScrollPane(messageList), new JScrollPane(messageContent));
+                new JScrollPane(messageList), messageSplit);
         messageContent.setEditable(false);
         messageContent.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
         messageContent.setFont(new Font("Segoe UI", Font.PLAIN, 13));
@@ -104,6 +141,12 @@ public class EmailClientUI extends JFrame {
         tabs.addTab("Пошта", mainSplit);
         tabs.addTab("Користувачі", userPanel);
         add(tabs, BorderLayout.CENTER);
+        
+       
+
+  
+        
+
         
 
         loadFolders();
@@ -128,7 +171,17 @@ public class EmailClientUI extends JFrame {
     }
 
     private void showMessageContent(EmailMessage msg) {
-        if (msg == null) return;
+    	attachmentsModel.clear();
+    	if (msg == null) {
+    	        System.out.println("Повідомлення не вибране або не завантажене.");
+    	        return;
+    	    }
+    	    List<Attachment> attachments = msg.getAttachments();
+    	    if (attachments != null && !attachments.isEmpty()) {
+    	        for (Attachment a : attachments) {
+    	            attachmentsModel.addElement(a);
+    	    }
+    	}
         messageContent.setText("<b>Тема:</b> " + msg.getSubject() + "<hr>" + msg.getBody());
         messageContent.setCaretPosition(0);
     }
@@ -170,13 +223,18 @@ public class EmailClientUI extends JFrame {
         int count = countStr.equals("Всі") ? Integer.MAX_VALUE : Integer.parseInt(countStr);
         	
         if (choice == JOptionPane.CLOSED_OPTION) return;
-        MailReceiverImap receiver = MailReceiverManager
-                .getInstance()
-                .getReceiver(selectedAccount.getProvider(), choice == 1);
+        MailReceiver receiver = receiverManager
+        		.getReceiver(selectedAccount.getProvider(), choice == 1);
 
 
         try {
-            List<EmailMessage> list=receiver.receiveEMails(selectedAccount.getEmail(), selectedAccount.getPassword(), count);
+        	List<EmailMessage> list;
+        	if(choice==1) {
+        		List<EmailMessage> list1=receiver.receiveEMails(selectedAccount.getEmail(), selectedAccount.getPassword(), count);
+        		list=messageService.findByAccountEmail(selectedAccount);
+        	}else {
+        		list=receiver.receiveEMails(selectedAccount.getEmail(), selectedAccount.getPassword(), count);
+        	}
             for(EmailMessage message: list) {
             	boolean alreadyExists = false;
                 for (int i = 0; i < messagesModel.size(); i++) {
