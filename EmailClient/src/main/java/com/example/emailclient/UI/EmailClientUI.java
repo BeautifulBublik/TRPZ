@@ -31,9 +31,6 @@ import org.springframework.stereotype.Component;
 
 import com.example.emailclient.model.Folder;
 import com.example.emailclient.model.User;
-import com.example.emailclient.decorator.EmailSender;
-import com.example.emailclient.decorator.LoggingMailSenderDecorator;
-import com.example.emailclient.decorator.RetryMailSenderDecorator;
 import com.example.emailclient.model.Account;
 import com.example.emailclient.model.Attachment;
 import com.example.emailclient.model.EmailMessage;
@@ -43,6 +40,9 @@ import com.example.emailclient.service.AccountService;
 import com.example.emailclient.service.EmailMessageService;
 import com.example.emailclient.service.UserService;
 import com.example.emailclient.service.receiver.MailReceiver;
+import com.example.emailclient.service.sender.EmailSender;
+import com.example.emailclient.service.sender.LoggingMailSenderDecorator;
+import com.example.emailclient.service.sender.RetryMailSenderDecorator;
 import com.example.emailclient.singelton.MailReceiverManager;
 
 import jakarta.annotation.PostConstruct;

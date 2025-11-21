@@ -1,8 +1,8 @@
 package com.example.emailclient.UI;
 
 
-import com.example.emailclient.decorator.EmailSender;
 import com.example.emailclient.model.Attachment;
+import com.example.emailclient.service.sender.EmailSender;
 
 import javax.swing.*;
 import java.awt.*;
